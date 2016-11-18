@@ -35,6 +35,12 @@ class DataProvider:NSObject, OFASectionDataProvider {
 
 }
 
+
+@objc
+protocol ArtistSelectionObserver: class {
+    func selected(_ artist: Artist, on: IndexPath)
+}
+
 class ArtistsListDatasource {
 
     init(tableView: UITableView, artistsResource: ArtistsResourceType) {
@@ -47,6 +53,11 @@ class ArtistsListDatasource {
     private let tableView: UITableView
     private var populator: OFAViewPopulator?
     
+    private var selectionObservers = NSHashTable<ArtistSelectionObserver>()
+    func registerSelectionObserver(observer: ArtistSelectionObserver) {
+        selectionObservers.add(observer)
+    }
+    
     private func configure(){
         let dataProvider = DataProvider(artistsResource: artistsResource, reload: { self.tableView.reloadData()})
         if let section1Populator = OFASectionPopulator(parentView: tableView, dataProvider: dataProvider, cellIdentifier: {
@@ -58,6 +69,14 @@ class ArtistsListDatasource {
                 cell.textLabel?.text = "\(obj.username)"
             }
         }){
+            section1Populator.objectOnCellSelected = {
+                (obj, cell, indexPath) -> Void in
+                if let artist = obj as? Artist, let indexPath = indexPath {
+                    for observer:ArtistSelectionObserver in self.selectionObservers.allObjects {
+                        observer.selected(artist, on: indexPath)
+                    }
+                }
+            }
             self.populator = OFAViewPopulator(sectionPopulators: [section1Populator])
         }
     }

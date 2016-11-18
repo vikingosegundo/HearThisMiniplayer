@@ -19,6 +19,7 @@
 		64EAA2CE1DDF346F0065B2A6 /* APIModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64EAA2CD1DDF346F0065B2A6 /* APIModel.swift */; };
 		64EAA2D11DDF50B50065B2A6 /* ArtistsResource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64EAA2D01DDF50B50065B2A6 /* ArtistsResource.swift */; };
 		64EAA2D31DDF51350065B2A6 /* Artist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64EAA2D21DDF51350065B2A6 /* Artist.swift */; };
+		64EAA2D61DDF5DE00065B2A6 /* StartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64EAA2D51DDF5DE00065B2A6 /* StartViewController.swift */; };
 		EA0C2AC4424AD99EE9C0B19C /* Pods_HearThis.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B112F09584D86B3C51DCFC0D /* Pods_HearThis.framework */; };
 /* End PBXBuildFile section */
 
@@ -49,6 +50,7 @@
 		64EAA2CD1DDF346F0065B2A6 /* APIModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIModel.swift; sourceTree = "<group>"; };
 		64EAA2D01DDF50B50065B2A6 /* ArtistsResource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArtistsResource.swift; sourceTree = "<group>"; };
 		64EAA2D21DDF51350065B2A6 /* Artist.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Artist.swift; sourceTree = "<group>"; };
+		64EAA2D51DDF5DE00065B2A6 /* StartViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StartViewController.swift; sourceTree = "<group>"; };
 		8C07670BD91015B630C62624 /* Pods-HearThis.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HearThis.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HearThis/Pods-HearThis.debug.xcconfig"; sourceTree = "<group>"; };
 		B112F09584D86B3C51DCFC0D /* Pods_HearThis.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HearThis.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B71DDCDABC430A27D3650D61 /* Pods-HearThis.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HearThis.release.xcconfig"; path = "Pods/Target Support Files/Pods-HearThis/Pods-HearThis.release.xcconfig"; sourceTree = "<group>"; };
@@ -115,6 +117,7 @@
 				64E402CE1DDE4CD900950D00 /* LaunchScreen.storyboard */,
 				64E402D11DDE4CD900950D00 /* Info.plist */,
 				64EAA2C21DDE5F090065B2A6 /* ArtistsListDataSource.swift */,
+				64EAA2D51DDF5DE00065B2A6 /* StartViewController.swift */,
 			);
 			path = HearThis;
 			sourceTree = "<group>";
@@ -329,6 +332,7 @@
 				64EAA2D11DDF50B50065B2A6 /* ArtistsResource.swift in Sources */,
 				64EAA2D31DDF51350065B2A6 /* Artist.swift in Sources */,
 				64EAA2CC1DDF32850065B2A6 /* NetworkConnector.swift in Sources */,
+				64EAA2D61DDF5DE00065B2A6 /* StartViewController.swift in Sources */,
 				64EAA2C91DDF31FC0065B2A6 /* HearThisAPI.swift in Sources */,
 				64EAA2C31DDE5F090065B2A6 /* ArtistsListDataSource.swift in Sources */,
 				64E402C61DDE4CD900950D00 /* AppDelegate.swift in Sources */,

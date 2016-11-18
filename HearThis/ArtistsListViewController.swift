@@ -8,21 +8,24 @@
 
 import UIKit
 
-class ArtistsListViewController: UIViewController {
-    let hearThisAPI = HearThisAPI(networkConnector: NetworkConnector())
+class ArtistsListViewController: UIViewController, ArtistSelectionObserver {
+
+    let hearThisAPI = HearThisAPI(networkConnector: NetworkConnectorMock())
 
     @IBOutlet weak var tableView: UITableView! {
         didSet {
-            self.datasource = ArtistsListDatasource(tableView:tableView, artistsResource: ArtistsResource(hearThisAPI: hearThisAPI))
+            let ds =  ArtistsListDatasource(tableView:tableView,
+                                            artistsResource: ArtistsResource(hearThisAPI: hearThisAPI)
+            )
+            ds.registerSelectionObserver(observer: self)
+            self.datasource = ds
         }
     }
     
     private var datasource: ArtistsListDatasource?
     
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    func selected(_ artist: Artist, on: IndexPath) {
+        print(artist.username)
     }
-
 }
 

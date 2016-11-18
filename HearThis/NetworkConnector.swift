@@ -22,7 +22,7 @@ protocol NetworkConnecting: NetworkFetching {
 class NetworkConnector: NetworkConnecting {
     func get(url: NSURL, parameters: [String : Any], response: @escaping ((FetchResult<[[String:Any]]>) -> Void)) {
         
-        Alamofire.request(url.absoluteString! ,method: .get, parameters: parameters).responseJSON {
+        Alamofire.request(url.absoluteString!, method: .get, parameters: parameters).responseJSON {
             networkResponse in
             switch networkResponse.result {
             case .success(let value):
@@ -38,6 +38,13 @@ class NetworkConnector: NetworkConnecting {
     }
 }
 
+class NetworkConnectorMock: NetworkConnecting {
+    func get(url: NSURL, parameters: [String : Any], response: @escaping ((FetchResult<[[String : Any]]>) -> Void)) {
+        response(FetchResult.success([["user":["id": "4711", "username":"Troubardix", "avatar_url":"https://Troubardix"]],
+                                      ["user":["id": "2342", "username":"Walther von der Vogelweide", "avatar_url":"https://walther"]]])
+        )
+    }
+}
 
 enum FetchingError: Error {
     case undefined(String)

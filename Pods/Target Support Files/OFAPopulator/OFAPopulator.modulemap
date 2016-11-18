@@ -1,0 +1,6 @@
+framework module OFAPopulator {
+  umbrella header "OFAPopulator-umbrella.h"
+
+  export *
+  module * { export * }
+}

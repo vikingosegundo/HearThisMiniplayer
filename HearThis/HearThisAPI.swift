@@ -26,16 +26,18 @@ class HearThisAPI: HearThisAPIType {
             
             switch result {
             case .success(let list):
-                let artistsList = list.filter{$0["user"] != nil}.map{$0["user"]! as! [String:Any]}
-                let artists: [ArtistAPIModel] = artistsList.map{
-                    artistsDict in
-                    if let username = artistsDict["username"] as? String,
-                        let avatarURL = artistsDict["avatar_url"] as? String,
-                        let idString = artistsDict["id"]! as? String ,
-                        let id = Int(idString){
-                        return ArtistAPIModel(name: username, id:id, avatarURL:avatarURL)
-                    }
-                    return nil
+                let artists: [ArtistAPIModel] = list
+                    .filter{$0["user"] != nil}
+                    .map{$0["user"]! as! [String:Any]}
+                    .map{
+                        artistsDict in
+                        if let username = artistsDict["username"] as? String,
+                            let avatarURL = artistsDict["avatar_url"] as? String,
+                            let idString = artistsDict["id"]! as? String ,
+                            let id = Int(idString){
+                            return ArtistAPIModel(name: username, id:id, avatarURL:avatarURL)
+                        }
+                        return nil
                     }
                     .filter { $0 != nil }
                     .map{ $0! }
