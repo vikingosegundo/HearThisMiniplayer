@@ -55,7 +55,6 @@ class AVPlayerItemStatusObserver: NSObject {
                                forKeyPath: #keyPath(AVPlayerItem.status),
                                options: [.old, .new],
                                context: &playerItemContext)
-
     }
     
     deinit {
@@ -95,19 +94,32 @@ class AVPlayerItemStatusObserver: NSObject {
 
 class HearThisPlayer: HearThisPlayerType {
 
+    init(notificationCenter: NotificationCenter = NotificationCenter.default) {
+        self.notificationCenter = notificationCenter
+    
+        
+        player.addBoundaryTimeObserver(forTimes: [CMTime(seconds: 0.001, preferredTimescale: 1000) as NSValue], queue: nil, using:{
+            if let currentTrack = self.currentTrack {
+                self.trackdDidStartPlaying(track: currentTrack)
+            }
+        })
+        
+        notificationCenter.addObserver(self, selector: #selector(HearThisPlayer.playerDidFinishPlaying(note:)),name: NSNotification.Name.AVPlayerItemDidPlayToEndTime, object: player.currentItem)
+    }
     var observers:[HearThisPlayerObserver] = []
     
     private let player = AVPlayer()
     
     private var playerItemStatusObserver: AVPlayerItemStatusObserver?
-    private var currentTrack: Track?
-    
+    fileprivate var currentTrack: Track?
+    private let notificationCenter: NotificationCenter
     func play(_ track: Track) {
         self.trackWillStartPlaying(track)
         DispatchQueue.global(qos: .background).async {
             [weak self] in
             guard let `self` = self else { return }
             let item = AVPlayerItem(url: URL(string: track.streamURL)!)
+
             self.playerItemStatusObserver = AVPlayerItemStatusObserver(playerItem: item) {
                 status in
                 switch status {
@@ -138,9 +150,6 @@ class HearThisPlayer: HearThisPlayerType {
     private func playItem(_ item: AVPlayerItem) {
         player.replaceCurrentItem(with: item)
         player.play()
-        if let currentTrack = self.currentTrack {
-            self.trackdDidStartPlaying(track: currentTrack)
-        }
     }
 }
 
@@ -171,6 +180,12 @@ extension HearThisPlayer {
         }
     }
     
+    @objc
+    func playerDidFinishPlaying(note: NSNotification){
+        if let track = currentTrack {
+            trackdDidStopPlaying(track: track)
+        }
+    }
 
 }
 
