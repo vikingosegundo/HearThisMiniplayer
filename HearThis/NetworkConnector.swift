@@ -9,11 +9,19 @@
 import Foundation
 import Alamofire
 
-protocol NetworkFetching {
-    func get(url: NSURL, parameters: [String:Any],  response: @escaping ((FetchResult<[[String:Any]]>) -> Void))
+enum FetchError: Error {
+    case undefined(String)
 }
 
 
+enum FetchResult<T> {
+    case success(T)
+    case error(Error)
+}
+
+protocol NetworkFetching {
+    func get(url: NSURL, parameters: [String:Any],  response: @escaping ((FetchResult<[[String:Any]]>) -> Void))
+}
 
 protocol NetworkConnecting: NetworkFetching {
     
@@ -29,7 +37,7 @@ class NetworkConnector: NetworkConnecting {
                 if let value = value as? [[String: Any]] {
                     response(FetchResult.success(value))
                 } else {
-                    response(FetchResult.error(FetchingError.undefined("Format error")))
+                    response(FetchResult.error(FetchError.undefined("Format error")))
                 }
             case .failure(let error):
                 response(FetchResult.error(error))
@@ -45,14 +53,3 @@ class NetworkConnectorMock: NetworkConnecting {
         )
     }
 }
-
-enum FetchingError: Error {
-    case undefined(String)
-}
-
-
-enum FetchResult<T> {
-    case success(T)
-    case error(Error)
-}
-

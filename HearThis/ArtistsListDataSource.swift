@@ -9,7 +9,7 @@
 import UIKit
 import OFAPopulator
 
-class DataProvider:NSObject, OFASectionDataProvider {
+class ArtistsDataProvider:NSObject, OFASectionDataProvider {
     init(artistsResource: ArtistsResourceType, reload: @escaping ()-> Void) {
         self.reload = reload
         self.artistsResource = artistsResource
@@ -35,7 +35,6 @@ class DataProvider:NSObject, OFASectionDataProvider {
 
 }
 
-
 @objc
 protocol ArtistSelectionObserver: class {
     func selected(_ artist: Artist, on: IndexPath)
@@ -53,13 +52,13 @@ class ArtistsListDatasource {
     private let tableView: UITableView
     private var populator: OFAViewPopulator?
     
-    private var selectionObservers = NSHashTable<ArtistSelectionObserver>()
+    private var selectionObservers = NSHashTable<ArtistSelectionObserver>(options: .weakMemory)
     func registerSelectionObserver(observer: ArtistSelectionObserver) {
         selectionObservers.add(observer)
     }
     
     private func configure(){
-        let dataProvider = DataProvider(artistsResource: artistsResource, reload: { self.tableView.reloadData()})
+        let dataProvider = ArtistsDataProvider(artistsResource: artistsResource, reload: { self.tableView.reloadData()})
         if let section1Populator = OFASectionPopulator(parentView: tableView, dataProvider: dataProvider, cellIdentifier: {
             _ in
             return "Cell1"

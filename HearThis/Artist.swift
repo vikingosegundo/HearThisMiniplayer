@@ -14,9 +14,11 @@ class Artist: NSObject {
         username = artistsAPIModel.name
         id = artistsAPIModel.id
         avatarURLString = artistsAPIModel.avatarURL
+        permalink = artistsAPIModel.permalink
     }
     
     let username: String
     let id: Int
     let avatarURLString: String
+    let permalink: String
 }
