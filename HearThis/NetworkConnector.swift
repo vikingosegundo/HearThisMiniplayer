@@ -21,6 +21,7 @@ enum FetchResult<T> {
 
 protocol NetworkFetching {
     func get(url: NSURL, parameters: [String:Any],  response: @escaping ((FetchResult<[[String:Any]]>) -> Void))
+    func getPlainResponse(url: NSURL, parameters: [String:Any], response: @escaping ((FetchResult<Any>) -> Void))
 }
 
 protocol NetworkConnecting: NetworkFetching {
@@ -44,6 +45,18 @@ class NetworkConnector: NetworkConnecting {
             }
         }
     }
+    func getPlainResponse(url: NSURL, parameters: [String:Any], response: @escaping ((FetchResult<Any>) -> Void)) {
+        
+        Alamofire.request(url.absoluteString!, parameters: parameters).responseJSON {
+            networkResponse in
+            switch networkResponse.result {
+            case .success(let value):
+                response(FetchResult.success(value))
+            case .failure(let error):
+                response(FetchResult.error(error))
+            }
+        }
+    }
 }
 
 class NetworkConnectorMock: NetworkConnecting {
@@ -51,5 +64,9 @@ class NetworkConnectorMock: NetworkConnecting {
         response(FetchResult.success([["user":["id": "4711", "username":"Troubardix", "avatar_url":"https://Troubardix"]],
                                       ["user":["id": "2342", "username":"Walther von der Vogelweide", "avatar_url":"https://walther"]]])
         )
+    }
+    
+    func getPlainResponse(url: NSURL, parameters: [String : Any], response: @escaping ((FetchResult<Any>) -> Void)) {
+        
     }
 }

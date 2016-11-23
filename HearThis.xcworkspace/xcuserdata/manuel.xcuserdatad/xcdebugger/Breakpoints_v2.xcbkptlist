@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "HearThis/HearThisAPI.swift"
-            timestampString = "501266519.02581"
+            timestampString = "501443611.690154"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "75"
-            endingLineNumber = "75"
+            startingLineNumber = "92"
+            endingLineNumber = "92"
             landmarkName = "fetchTracksForArtists(artistPermaLink:page:numberOfTracks:fetched:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -25,46 +25,14 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "HearThis/HearThisPlayer.swift"
-            timestampString = "501372235.5371"
+            filePath = "HearThisTests/ArtistsListViewControllerSpec.swift"
+            timestampString = "501540250.122771"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "185"
-            endingLineNumber = "185"
-            landmarkName = "playerDidFinishPlaying(note:)"
+            startingLineNumber = "30"
+            endingLineNumber = "30"
+            landmarkName = "spec()"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "HearThis.HearThisPlayer.playerDidFinishPlaying (note : __ObjC.NSNotification) -&gt; ()"
-                  moduleName = "HearThis"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/manuel/Coding/HearThis/HearThis/HearThisPlayer.swift"
-                  timestampString = "501364964.985603"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "187"
-                  endingLineNumber = "187"
-                  offsetFromSymbolStart = "20">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "HearThis.HearThisPlayer.playerDidFinishPlaying (note : __ObjC.NSNotification) -&gt; ()"
-                  moduleName = "HearThis"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/manuel/Coding/HearThis/HearThis/HearThisPlayer.swift"
-                  timestampString = "501364964.988735"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "187"
-                  endingLineNumber = "187"
-                  offsetFromSymbolStart = "68">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

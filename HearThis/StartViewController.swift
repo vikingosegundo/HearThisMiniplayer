@@ -9,15 +9,24 @@
 import UIKit
 
 class StartViewController: UIViewController, HearThisPlayerHolder {
+    @IBOutlet weak var minPlayerHightConstraint: NSLayoutConstraint!
 
+    @IBOutlet weak var tableViewBottomContraint: NSLayoutConstraint!
     var hearThisPlayer: HearThisPlayerType? {
         didSet{
-            
+            hearThisPlayer?.registerObserver(observer: self)
         }
     }
     
+    fileprivate var bottomDistance: CGFloat = 0 {	
+        didSet{
+            minPlayerHightConstraint.constant = bottomDistance
+            tableViewBottomContraint.constant = bottomDistance
+        }
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
+        bottomDistance = 0
         for childViewController in self.childViewControllers {
             if let playerHolder = childViewController as? HearThisPlayerHolder {
                 playerHolder.hearThisPlayer = self.hearThisPlayer
@@ -25,4 +34,14 @@ class StartViewController: UIViewController, HearThisPlayerHolder {
         }
     }
 
+}
+
+extension StartViewController: HearThisPlayerObserver {
+    func player(_ player: HearThisPlayerType, willStartPlaying track: Track) {
+        bottomDistance = 69
+    }
+    
+    func player(_ player: HearThisPlayerType, didStopPlaying track: Track) {
+        bottomDistance = 0
+    }
 }

@@ -34,4 +34,14 @@ struct TrackAPIModel {
     let title: String
     let id: Int
     let streamURL: String
+    var waveFormDataAPIModel: WaveFormDataAPIModel?
+
+}
+
+struct WaveFormDataAPIModel {
+    init(waveFormDataPoints: [Int]) {
+        self.waveFormDataPoints = waveFormDataPoints
+    }
+    
+    let waveFormDataPoints: [Int]
 }

@@ -26,8 +26,7 @@ class TrackResource: TrackResourceType {
             result in
             switch result {
             case .success(let list):
-                let tracks = list.map{ Track(fromAPIModel: $0)}
-                fetched(FetchResult.success(tracks))
+                fetched(FetchResult.success(list.map{ Track(fromAPIModel: $0)}))
             case .error(let error):
                 fetched(FetchResult.error(error))
             }

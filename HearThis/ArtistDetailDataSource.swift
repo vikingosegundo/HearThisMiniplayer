@@ -27,7 +27,9 @@ class TracksDataProvider:NSObject, OFASectionDataProvider {
     private func fetch(){
         
         tracksResource.tracksForArtist(self.artist) {
+            [weak self]
             result in
+            guard let `self` = self else { return }
             switch result {
             case .success(let tracks):
                 self.sectionObjects = tracks
@@ -61,14 +63,18 @@ class ArtistDetailDataSource {
     private let artist: Artist
     private var populator: OFAViewPopulator?
 
-    private var selectionObservers = NSHashTable<TrackSelectionObserver>(options: .weakMemory)
+    private var selectionObservers = NSHashTable<TrackSelectionObserver>.weakObjects()
     
     func registerSelectionObserver(observer: TrackSelectionObserver) {
         selectionObservers.add(observer)
     }
     private func configure(){
         
-        let dataProvider = TracksDataProvider(artist: self.artist, tracksResource: tracksResource, reload: {self.tableView.reloadData()})
+        let dataProvider = TracksDataProvider(artist: self.artist, tracksResource: tracksResource, reload: {
+            [weak self] in
+            guard let `self` = self else { return }
+            self.tableView.reloadData()
+        })
         
         if let section1Populator = OFASectionPopulator(parentView: self.tableView, dataProvider: dataProvider, cellIdentifier: {_ in return "Cell1"}, cellConfigurator: {obj, view, indexPath in
             if let cell = view as? UITableViewCell,
@@ -77,7 +83,9 @@ class ArtistDetailDataSource {
             }
         }) {
             section1Populator.objectOnCellSelected = {
+                [weak self]
                 obj, view, indexPath in
+                guard let `self` = self else { return }
                 if let track = obj as? Track, let indexPath = indexPath {
                     for observer:TrackSelectionObserver in self.selectionObservers.allObjects {
                         observer.selected(track, on: indexPath)

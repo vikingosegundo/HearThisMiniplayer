@@ -22,7 +22,10 @@ class ArtistsDataProvider:NSObject, OFASectionDataProvider {
     private let artistsResource: ArtistsResourceType
     
     private func fetch(){
-        artistsResource.topArtists { (result) in
+        artistsResource.topArtists {
+            [weak self]
+            (result) in
+            guard let `self` = self else { return }
             switch result {
             case .success(let artists):
                 self.sectionObjects = artists
@@ -48,35 +51,44 @@ class ArtistsListDatasource {
         configure()
     }
     
-    private let artistsResource: ArtistsResourceType
-    private let tableView: UITableView
+    private weak var artistsResource: ArtistsResourceType?
+    private weak var tableView: UITableView?
     private var populator: OFAViewPopulator?
     
-    private var selectionObservers = NSHashTable<ArtistSelectionObserver>(options: .weakMemory)
+    private var selectionObservers = NSHashTable<ArtistSelectionObserver>.weakObjects()
     func registerSelectionObserver(observer: ArtistSelectionObserver) {
         selectionObservers.add(observer)
     }
     
     private func configure(){
-        let dataProvider = ArtistsDataProvider(artistsResource: artistsResource, reload: { self.tableView.reloadData()})
-        if let section1Populator = OFASectionPopulator(parentView: tableView, dataProvider: dataProvider, cellIdentifier: {
-            _ in
-            return "Cell1"
-        }, cellConfigurator: {
-            obj, cellView, indexPath in
-            if let cell = cellView as? UITableViewCell, let obj = obj as? Artist {
-                cell.textLabel?.text = "\(obj.username)"
-            }
-        }){
-            section1Populator.objectOnCellSelected = {
-                (obj, cell, indexPath) -> Void in
-                if let artist = obj as? Artist, let indexPath = indexPath {
-                    for observer:ArtistSelectionObserver in self.selectionObservers.allObjects {
-                        observer.selected(artist, on: indexPath)
+        
+        if let artistsResource = self.artistsResource {
+            let dataProvider = ArtistsDataProvider(artistsResource: artistsResource, reload: {
+                [weak self] in
+                guard let `self` = self else { return }
+                self.tableView?.reloadData()
+            })
+            if let section1Populator = OFASectionPopulator(parentView: tableView, dataProvider: dataProvider, cellIdentifier: {
+                _ in
+                return "Cell1"
+            }, cellConfigurator: {
+                obj, cellView, indexPath in
+                if let cell = cellView as? UITableViewCell, let obj = obj as? Artist {
+                    cell.textLabel?.text = "\(obj.username)"
+                }
+            }){
+                section1Populator.objectOnCellSelected = {
+                    [weak self]
+                    (obj, cell, indexPath) -> Void in
+                    guard let `self` = self else { return }
+                    if let artist = obj as? Artist, let indexPath = indexPath {
+                        for observer:ArtistSelectionObserver in self.selectionObservers.allObjects {
+                            observer.selected(artist, on: indexPath)
+                        }
                     }
                 }
-            }
-            self.populator = OFAViewPopulator(sectionPopulators: [section1Populator])
+                self.populator = OFAViewPopulator(sectionPopulators: [section1Populator])
+            }   
         }
     }
 }

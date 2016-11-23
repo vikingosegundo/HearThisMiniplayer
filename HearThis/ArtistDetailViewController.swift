@@ -15,15 +15,18 @@ class ArtistDetailViewController: BaseTableViewController, TrackSelectionObserve
     var hearThisPlayer: HearThisPlayerType?
     private var datasource: ArtistDetailDataSource?
 
+    @IBOutlet weak var artistDetailHeaderView: ArtistDetailHeaderView!
     
     @IBOutlet weak var artistName: UILabel!
+    @IBOutlet weak var avatar: UIImageView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         if let artist = artist {
-            artistName.text = artist.username
+            self.artistDetailHeaderView.artist = artist
             self.datasource = ArtistDetailDataSource(tableView: tableView, artist: artist, tracksResource: TrackResource(hearThisAPI:hearThisAPI))
             self.datasource?.registerSelectionObserver(observer: self)
+            
         }
     }
     

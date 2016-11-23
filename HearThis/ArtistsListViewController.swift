@@ -10,17 +10,26 @@ import UIKit
 
 class ArtistsListViewController: BaseTableViewController, ArtistSelectionObserver, HearThisPlayerHolder {
 
-    let hearThisAPI = HearThisAPI(networkConnector: NetworkConnector())
-
-    override weak var tableView: UITableView! {
-        didSet {
-            let ds =  ArtistsListDatasource(tableView:tableView,
-                                            artistsResource: ArtistsResource(hearThisAPI: hearThisAPI)
-            )
-            ds.registerSelectionObserver(observer: self)
-            self.datasource = ds
+    
+    override var tableView: UITableView! {
+        didSet{
+            configure()
         }
     }
+    
+    var hearThisAPI: HearThisAPIType {
+        set{
+            privateApi = newValue
+        }
+        get {
+            if privateApi == nil {
+                privateApi = HearThisAPI(networkConnector: NetworkConnector())
+            }
+            return privateApi!
+        }
+    }
+    
+    private var privateApi: HearThisAPIType?
     
     private var datasource: ArtistsListDatasource?
     
@@ -31,7 +40,6 @@ class ArtistsListViewController: BaseTableViewController, ArtistSelectionObserve
         selectedArtist = artist
         performSegue(withIdentifier: "ArtistDetailViewController", sender: self)
         selectedArtist = nil
-
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -43,5 +51,21 @@ class ArtistsListViewController: BaseTableViewController, ArtistSelectionObserve
             destination.artist = selectedArtist
         }
     }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+
+    }
+    
+    private func configure(){
+        guard let tableView = self.tableView else { return }
+        
+        let ds =  ArtistsListDatasource(tableView:tableView,
+                                        artistsResource: ArtistsResource(hearThisAPI: hearThisAPI)
+        )
+        ds.registerSelectionObserver(observer: self)
+        self.datasource = ds
+    }
+    
 }
 

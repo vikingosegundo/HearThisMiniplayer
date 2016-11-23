@@ -1,6 +1,6 @@
 //
-//  HearThisTests.swift
-//  HearThisTests
+//  ArtistsListDatasourceSpec.swift
+//  ArtistsListDatasourceSpec
 //
 //  Created by Manuel Meyer on 17.11.16.
 //  Copyright © 2016 Manuel Meyer. All rights reserved.

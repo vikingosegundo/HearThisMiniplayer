@@ -9,7 +9,7 @@
 import Foundation
 
 
-protocol ArtistsResourceType {
+protocol ArtistsResourceType: class {
     func topArtists(topArtistsFetched: @escaping (FetchResult<[Artist]>) -> Void)
 }
 
@@ -26,7 +26,9 @@ class ArtistsResource: ArtistsResourceType {
     
     func topArtists(topArtistsFetched: @escaping (FetchResult<[Artist]>) -> Void) {
         if _topArtists.count < 1 {
-            hearThisAPI.fetchArtists(page: 0, numberOfArtists: batchSize, fetched: { (result) in
+            hearThisAPI.fetchArtists(page: 0, numberOfArtists: batchSize, fetched: {
+                [weak self] (result) in
+                guard let `self` = self else { return }
                 switch result {
                 case .success(let apiArtists):
                     self._topArtists = apiArtists.map{ Artist(fromAPIModel: $0) }

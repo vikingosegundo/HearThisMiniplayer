@@ -9,13 +9,18 @@
 import UIKit
 
 class ArtistDetailHeaderView: UIView {
-
-    /*
-    // Only override draw() if you perform custom drawing.
-    // An empty implementation adversely affects performance during animation.
-    override func draw(_ rect: CGRect) {
-        // Drawing code
+    @IBOutlet weak var artistNameLabel: UILabel!
+    @IBOutlet weak var avatarView: UIImageView!
+    
+    var artist: Artist? {
+        didSet{
+            artistNameLabel.text = artist?.username
+            if let artist = self.artist {
+                avatarView.imageFromUrl(urlString: artist.avatarURLString)
+                avatarView.clipsToBounds = true
+                avatarView.layer.cornerRadius = avatarView.frame.size.width / 2.0
+            }
+        }
     }
-    */
 
 }
