@@ -192,10 +192,36 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wUK-pP-wnR">
+                                                    <rect key="frame" x="279" y="57" width="88" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="deV-oR-3tP">
+                                                    <rect key="frame" x="8" y="57" width="62" height="21"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="62" id="PCB-7z-ewc"/>
+                                                        <constraint firstAttribute="height" constant="21" id="TVZ-Fk-5aX"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JUj-QH-JI9">
+                                                    <rect key="frame" x="87" y="57" width="60" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                             <constraints>
+                                                <constraint firstItem="deV-oR-3tP" firstAttribute="top" secondItem="8Td-ZE-tyH" secondAttribute="bottom" constant="5" id="387-2J-kIu"/>
                                                 <constraint firstItem="3Nm-ho-43S" firstAttribute="leading" secondItem="NFe-sc-wfr" secondAttribute="leading" constant="8" id="UFC-bD-XvO"/>
                                                 <constraint firstItem="8Td-ZE-tyH" firstAttribute="top" secondItem="NFe-sc-wfr" secondAttribute="top" constant="8" id="gZQ-7m-USe"/>
+                                                <constraint firstItem="deV-oR-3tP" firstAttribute="leading" secondItem="NFe-sc-wfr" secondAttribute="leading" constant="8" id="hod-qt-7bK"/>
                                                 <constraint firstItem="3Nm-ho-43S" firstAttribute="top" secondItem="NFe-sc-wfr" secondAttribute="top" constant="8" id="prh-qJ-SBa"/>
                                                 <constraint firstItem="8Td-ZE-tyH" firstAttribute="leading" secondItem="3Nm-ho-43S" secondAttribute="trailing" constant="8" id="qvT-Ey-Izf"/>
                                                 <constraint firstAttribute="trailing" secondItem="8Td-ZE-tyH" secondAttribute="trailing" constant="8" id="xY8-LB-eXA"/>
@@ -203,6 +229,9 @@
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="coverArtView" destination="3Nm-ho-43S" id="GAy-8h-LQw"/>
+                                            <outlet property="duartionLabel" destination="wUK-pP-wnR" id="yal-tn-grc"/>
+                                            <outlet property="favoriteCountLabel" destination="JUj-QH-JI9" id="AzX-O0-bNu"/>
+                                            <outlet property="playCountLabel" destination="deV-oR-3tP" id="x6C-Ci-duq"/>
                                             <outlet property="titleLabel" destination="8Td-ZE-tyH" id="Sy9-9Q-J9l"/>
                                         </connections>
                                     </tableViewCell>

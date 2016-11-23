@@ -7,7 +7,7 @@
 //
 
 import Foundation
-
+import HearThisAPI
 
 protocol TrackResourceType {
     func tracksForArtist(_ artist:Artist, fetched: @escaping (FetchResult<[Track]>) -> Void)

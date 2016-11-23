@@ -9,9 +9,24 @@
 			<key>orderHint</key>
 			<integer>0</integer>
 		</dict>
+		<key>HearThisAPI.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>7</integer>
+		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
+		<key>64C861021DE5FAE6003BA939</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>64C8610A1DE5FAE6003BA939</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>64E402C11DDE4CD900950D00</key>
 		<dict>
 			<key>primary</key>

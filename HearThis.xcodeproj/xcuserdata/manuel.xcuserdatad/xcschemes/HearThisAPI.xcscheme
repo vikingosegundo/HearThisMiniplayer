@@ -14,10 +14,10 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "1321E318D10CFDC9F5B93A7952492CCD"
-               BuildableName = "Nimble.framework"
-               BlueprintName = "Nimble"
-               ReferencedContainer = "container:Pods.xcodeproj">
+               BlueprintIdentifier = "64C861021DE5FAE6003BA939"
+               BuildableName = "HearThisAPI.framework"
+               BlueprintName = "HearThisAPI"
+               ReferencedContainer = "container:HearThis.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -45,10 +45,10 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "1321E318D10CFDC9F5B93A7952492CCD"
-            BuildableName = "Nimble.framework"
-            BlueprintName = "Nimble"
-            ReferencedContainer = "container:Pods.xcodeproj">
+            BlueprintIdentifier = "64C861021DE5FAE6003BA939"
+            BuildableName = "HearThisAPI.framework"
+            BlueprintName = "HearThisAPI"
+            ReferencedContainer = "container:HearThis.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -60,6 +60,15 @@
       savedToolIdentifier = ""
       useCustomWorkingDirectory = "NO"
       debugDocumentVersioning = "YES">
+      <MacroExpansion>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "64C861021DE5FAE6003BA939"
+            BuildableName = "HearThisAPI.framework"
+            BlueprintName = "HearThisAPI"
+            ReferencedContainer = "container:HearThis.xcodeproj">
+         </BuildableReference>
+      </MacroExpansion>
    </ProfileAction>
    <AnalyzeAction
       buildConfiguration = "Debug">

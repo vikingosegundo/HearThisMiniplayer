@@ -7,7 +7,7 @@
 //
 
 import Foundation
-
+import HearThisAPI
 
 class Artist: NSObject {
     init(fromAPIModel artistsAPIModel: ArtistAPIModel) {

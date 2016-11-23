@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import HearThisAPI
 
 class ArtistsListViewController: BaseTableViewController, ArtistSelectionObserver, HearThisPlayerHolder {
 

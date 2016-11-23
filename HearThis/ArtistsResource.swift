@@ -7,7 +7,7 @@
 //
 
 import Foundation
-
+import HearThisAPI
 
 protocol ArtistsResourceType: class {
     func topArtists(topArtistsFetched: @escaping (FetchResult<[Artist]>) -> Void)

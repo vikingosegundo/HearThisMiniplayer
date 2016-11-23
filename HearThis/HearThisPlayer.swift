@@ -60,17 +60,17 @@ class HearThisPlayer: HearThisPlayerType {
                 self.trackdDidStartPlaying(track: currentTrack)
             }
         })
-        
         notificationCenter.addObserver(self, selector: #selector(HearThisPlayer.playerDidFinishPlaying(note:)),name: NSNotification.Name.AVPlayerItemDidPlayToEndTime, object: player.currentItem)
     }
     var observers:[HearThisPlayerObserver] = []
     
-    private let player = AVPlayer()
+    private var player = AVPlayer()
     
     fileprivate var currentTrack: Track?
     private let notificationCenter: NotificationCenter
     private let audioSession: AVAudioSession
     func play(_ track: Track) {
+        self.resetPlayer()
         self.trackWillStartPlaying(track)
         DispatchQueue.global(qos: .background).async {
             [weak self] in
@@ -83,6 +83,7 @@ class HearThisPlayer: HearThisPlayerType {
     
     func stop() {
         player.pause()
+        self.resetPlayer()
         if player.currentItem != nil {
             player.replaceCurrentItem(with: nil)
             if let currentTrack = self.currentTrack {
@@ -104,6 +105,13 @@ class HearThisPlayer: HearThisPlayerType {
             }
         } catch let error as NSError {
             print(error.localizedDescription)
+        }
+    }
+    
+    private func resetPlayer(){
+        if let currentItem = self.player.currentItem {
+            currentItem.cancelPendingSeeks()
+            currentItem.asset.cancelLoading()
         }
     }
 }

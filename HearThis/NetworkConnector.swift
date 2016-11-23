@@ -8,25 +8,9 @@
 
 import Foundation
 import Alamofire
-
-enum FetchError: Error {
-    case undefined(String)
-}
+import HearThisAPI
 
 
-enum FetchResult<T> {
-    case success(T)
-    case error(Error)
-}
-
-protocol NetworkFetching {
-    func get(url: NSURL, parameters: [String:Any],  response: @escaping ((FetchResult<[[String:Any]]>) -> Void))
-    func getPlainResponse(url: NSURL, parameters: [String:Any], response: @escaping ((FetchResult<Any>) -> Void))
-}
-
-protocol NetworkConnecting: NetworkFetching {
-    
-}
 
 class NetworkConnector: NetworkConnecting {
     func get(url: NSURL, parameters: [String : Any], response: @escaping ((FetchResult<[[String:Any]]>) -> Void)) {

@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import HearThisAPI
 
 class Track: NSObject {
     init(fromAPIModel apiModel: TrackAPIModel) {
@@ -14,10 +15,16 @@ class Track: NSObject {
         title = apiModel.title
         streamURL = apiModel.streamURL
         coverArtURL = apiModel.coverArtURL
+        duration = apiModel.duration
+        playCount = apiModel.playCount
+        favoriteCount = apiModel.favoriteCount
     }
     
     let title: String
     let id: Int
     let streamURL: String
     let coverArtURL: String
+    let duration: Int
+    let playCount: Int
+    let favoriteCount:Int
 }

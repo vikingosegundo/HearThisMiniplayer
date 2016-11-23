@@ -39,6 +39,16 @@
                ReferencedContainer = "container:HearThis.xcodeproj">
             </BuildableReference>
          </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "64C8610A1DE5FAE6003BA939"
+               BuildableName = "HearThisAPITests.xctest"
+               BlueprintName = "HearThisAPITests"
+               ReferencedContainer = "container:HearThis.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
       <MacroExpansion>
          <BuildableReference
@@ -72,6 +82,13 @@
             ReferencedContainer = "container:HearThis.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
+      <EnvironmentVariables>
+         <EnvironmentVariable
+            key = "OS_ACTIVITY_MODE"
+            value = "disable"
+            isEnabled = "YES">
+         </EnvironmentVariable>
+      </EnvironmentVariables>
       <AdditionalOptions>
       </AdditionalOptions>
    </LaunchAction>
