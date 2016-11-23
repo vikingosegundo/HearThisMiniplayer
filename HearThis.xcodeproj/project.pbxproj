@@ -21,6 +21,9 @@
 		64C860EF1DE48501003BA939 /* ArtistsResourceMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64C860EE1DE48501003BA939 /* ArtistsResourceMock.swift */; };
 		64C860F21DE4D853003BA939 /* ArtistsListViewControllerSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64C860F11DE4D853003BA939 /* ArtistsListViewControllerSpec.swift */; };
 		64C860F41DE4D993003BA939 /* HearThisAPIMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64C860F31DE4D993003BA939 /* HearThisAPIMock.swift */; };
+		64C860F61DE5D14E003BA939 /* TestArtistsListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64C860F51DE5D14E003BA939 /* TestArtistsListViewController.swift */; };
+		64C860FB1DE5E212003BA939 /* ArtistTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64C860FA1DE5E212003BA939 /* ArtistTableViewCell.swift */; };
+		64C860FD1DE5E6ED003BA939 /* TrackTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64C860FC1DE5E6ED003BA939 /* TrackTableViewCell.swift */; };
 		64E402C61DDE4CD900950D00 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64E402C51DDE4CD900950D00 /* AppDelegate.swift */; };
 		64E402C81DDE4CD900950D00 /* ArtistsListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64E402C71DDE4CD900950D00 /* ArtistsListViewController.swift */; };
 		64E402CB1DDE4CD900950D00 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 64E402C91DDE4CD900950D00 /* Main.storyboard */; };
@@ -65,6 +68,9 @@
 		64C860EE1DE48501003BA939 /* ArtistsResourceMock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArtistsResourceMock.swift; sourceTree = "<group>"; };
 		64C860F11DE4D853003BA939 /* ArtistsListViewControllerSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArtistsListViewControllerSpec.swift; sourceTree = "<group>"; };
 		64C860F31DE4D993003BA939 /* HearThisAPIMock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HearThisAPIMock.swift; sourceTree = "<group>"; };
+		64C860F51DE5D14E003BA939 /* TestArtistsListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestArtistsListViewController.swift; sourceTree = "<group>"; };
+		64C860FA1DE5E212003BA939 /* ArtistTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArtistTableViewCell.swift; sourceTree = "<group>"; };
+		64C860FC1DE5E6ED003BA939 /* TrackTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrackTableViewCell.swift; sourceTree = "<group>"; };
 		64E402C21DDE4CD900950D00 /* HearThis.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HearThis.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		64E402C51DDE4CD900950D00 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		64E402C71DDE4CD900950D00 /* ArtistsListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistsListViewController.swift; sourceTree = "<group>"; };
@@ -134,7 +140,6 @@
 			isa = PBXGroup;
 			children = (
 				6479D19C1DE204560001A297 /* HearThisPlayer.swift */,
-				6479D19F1DE20BF00001A297 /* HearThisPlayerViewController.swift */,
 				6479D1A31DE2E0150001A297 /* HearThisPlayerButton.swift */,
 				6479D1A61DE2E1D10001A297 /* Player.xcassets */,
 			);
@@ -146,6 +151,7 @@
 			children = (
 				64C860EE1DE48501003BA939 /* ArtistsResourceMock.swift */,
 				64C860F31DE4D993003BA939 /* HearThisAPIMock.swift */,
+				64C860F51DE5D14E003BA939 /* TestArtistsListViewController.swift */,
 			);
 			name = Mocks;
 			sourceTree = "<group>";
@@ -158,6 +164,38 @@
 				64C860F11DE4D853003BA939 /* ArtistsListViewControllerSpec.swift */,
 			);
 			name = ArtistsList;
+			sourceTree = "<group>";
+		};
+		64C860F71DE5E155003BA939 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				6479D19F1DE20BF00001A297 /* HearThisPlayerViewController.swift */,
+				64E402C71DDE4CD900950D00 /* ArtistsListViewController.swift */,
+				64EAA2D51DDF5DE00065B2A6 /* StartViewController.swift */,
+				64EAA2D71DE098DC0065B2A6 /* ArtistDetailViewController.swift */,
+				64E86C471DE1DE8F00AF0815 /* BaseTableViewController.swift */,
+			);
+			name = ViewControllers;
+			sourceTree = "<group>";
+		};
+		64C860F81DE5E16F003BA939 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				6479D1AA1DE2F8460001A297 /* ArtistDetailHeaderView.swift */,
+				64C860FA1DE5E212003BA939 /* ArtistTableViewCell.swift */,
+				64C860FC1DE5E6ED003BA939 /* TrackTableViewCell.swift */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		64C860F91DE5E1AD003BA939 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				64C860F81DE5E16F003BA939 /* Views */,
+				64E402C91DDE4CD900950D00 /* Main.storyboard */,
+				64E402CE1DDE4CD900950D00 /* LaunchScreen.storyboard */,
+			);
+			name = UI;
 			sourceTree = "<group>";
 		};
 		64E402B91DDE4CD900950D00 = {
@@ -185,6 +223,8 @@
 		64E402C41DDE4CD900950D00 /* HearThis */ = {
 			isa = PBXGroup;
 			children = (
+				64C860F91DE5E1AD003BA939 /* UI */,
+				64C860F71DE5E155003BA939 /* ViewControllers */,
 				6479D19E1DE20BD90001A297 /* Player */,
 				6479D1961DE1E4340001A297 /* DataSources */,
 				64EAA2D41DDF5ACA0065B2A6 /* Model */,
@@ -192,15 +232,8 @@
 				64EAA2CA1DDF321C0065B2A6 /* Network */,
 				64EAA2C71DDF31EB0065B2A6 /* API */,
 				64E402C51DDE4CD900950D00 /* AppDelegate.swift */,
-				64E402C71DDE4CD900950D00 /* ArtistsListViewController.swift */,
-				64E402C91DDE4CD900950D00 /* Main.storyboard */,
 				64E402CC1DDE4CD900950D00 /* Assets.xcassets */,
-				64E402CE1DDE4CD900950D00 /* LaunchScreen.storyboard */,
 				64E402D11DDE4CD900950D00 /* Info.plist */,
-				64EAA2D51DDF5DE00065B2A6 /* StartViewController.swift */,
-				64EAA2D71DE098DC0065B2A6 /* ArtistDetailViewController.swift */,
-				64E86C471DE1DE8F00AF0815 /* BaseTableViewController.swift */,
-				6479D1AA1DE2F8460001A297 /* ArtistDetailHeaderView.swift */,
 			);
 			path = HearThis;
 			sourceTree = "<group>";
@@ -482,6 +515,7 @@
 				64EAA2CC1DDF32850065B2A6 /* NetworkConnector.swift in Sources */,
 				64EAA2D61DDF5DE00065B2A6 /* StartViewController.swift in Sources */,
 				6479D1981DE1E45E0001A297 /* ArtistDetailDataSource.swift in Sources */,
+				64C860FB1DE5E212003BA939 /* ArtistTableViewCell.swift in Sources */,
 				6479D1951DE1E2A80001A297 /* TrackResource.swift in Sources */,
 				6479D1A41DE2E0150001A297 /* HearThisPlayerButton.swift in Sources */,
 				64EAA2C91DDF31FC0065B2A6 /* HearThisAPI.swift in Sources */,
@@ -489,6 +523,7 @@
 				64E402C61DDE4CD900950D00 /* AppDelegate.swift in Sources */,
 				6479D1931DE1E1F90001A297 /* Track.swift in Sources */,
 				6479D1A21DE2113D0001A297 /* HearThisNavigationController.swift in Sources */,
+				64C860FD1DE5E6ED003BA939 /* TrackTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -496,6 +531,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				64C860F61DE5D14E003BA939 /* TestArtistsListViewController.swift in Sources */,
 				64C860F41DE4D993003BA939 /* HearThisAPIMock.swift in Sources */,
 				64C860F21DE4D853003BA939 /* ArtistsListViewControllerSpec.swift in Sources */,
 				64C860EF1DE48501003BA939 /* ArtistsResourceMock.swift in Sources */,

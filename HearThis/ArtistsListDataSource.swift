@@ -73,8 +73,8 @@ class ArtistsListDatasource {
                 return "Cell1"
             }, cellConfigurator: {
                 obj, cellView, indexPath in
-                if let cell = cellView as? UITableViewCell, let obj = obj as? Artist {
-                    cell.textLabel?.text = "\(obj.username)"
+                if let cell = cellView as? ArtistTableViewCell, let artist = obj as? Artist {
+                    cell.configure(withArtist:artist)
                 }
             }){
                 section1Populator.objectOnCellSelected = {

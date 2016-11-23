@@ -45,7 +45,8 @@ class HearThisAPI: HearThisAPIType {
                     }
                     .filter { $0 != nil }
                     .map{ $0! }
-                fetched(FetchResult.success(artists))
+                
+                fetched(FetchResult.success(NSOrderedSet(array: artists).array as! [ArtistAPIModel]))
 
             case .error(let error):
                 fetched(FetchResult.error(error))
@@ -66,9 +67,10 @@ class HearThisAPI: HearThisAPIType {
                     if let idString = $0["id"] as? String,
                         let id = Int(idString),
                         let title = $0["title"] as? String,
-                        let streamURL = $0["stream_url"] as? String
+                        let streamURL = $0["stream_url"] as? String,
+                        let coverArtURL = $0["artwork_url"] as? String
                     {
-                        var track = TrackAPIModel(id: id, title: title, streamURL: streamURL)
+                        var track = TrackAPIModel(id: id, title: title, streamURL: streamURL, coverArtURL: coverArtURL)
                         if let waveFormURL = $0["waveform_data"] as? String{
                         self.fetchWaveFormData(waveFormURL, fetched: {
                             (result) in

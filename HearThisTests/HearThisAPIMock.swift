@@ -11,14 +11,15 @@ import Foundation
 @testable import HearThis
 
 class HearThisAPIMock: HearThisAPIType {
+    
+    init(mockedData: [ArtistAPIModel]) {
+        self.mockedData = mockedData
+    }
+    
+    let mockedData: [ArtistAPIModel]
+    
     func fetchArtists(page: Int = 0, numberOfArtists: Int = 20, fetched:@escaping ((FetchResult<[ArtistAPIModel]>) -> Void)) {
-        
-        let artists = [
-            ArtistAPIModel(id: 23, name: "Tiffy", avatarURL: "https://tiffy.com", permalink: "tiffy"),
-            ArtistAPIModel(id: 13, name: "Herr von Blödefeld", avatarURL: "https://bloedefeld.com", permalink: "bloedefeld")
-        ]
-        
-        fetched(FetchResult.success(artists))
+        fetched(FetchResult.success(mockedData))
     }
     
     func fetchTracksForArtists(artistPermaLink:String,page: Int, numberOfTracks: Int, fetched:@escaping ((FetchResult<[TrackAPIModel]>) -> Void)) {

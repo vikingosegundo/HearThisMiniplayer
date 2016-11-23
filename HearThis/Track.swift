@@ -13,9 +13,11 @@ class Track: NSObject {
         id = apiModel.id
         title = apiModel.title
         streamURL = apiModel.streamURL
+        coverArtURL = apiModel.coverArtURL
     }
     
     let title: String
     let id: Int
     let streamURL: String
+    let coverArtURL: String
 }

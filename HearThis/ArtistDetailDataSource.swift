@@ -77,9 +77,9 @@ class ArtistDetailDataSource {
         })
         
         if let section1Populator = OFASectionPopulator(parentView: self.tableView, dataProvider: dataProvider, cellIdentifier: {_ in return "Cell1"}, cellConfigurator: {obj, view, indexPath in
-            if let cell = view as? UITableViewCell,
+            if let cell = view as? TrackTableViewCell,
                 let track = obj as? Track{
-                cell.textLabel?.text = track.title
+                cell.configure(withTrack: track)
             }
         }) {
             section1Populator.objectOnCellSelected = {
