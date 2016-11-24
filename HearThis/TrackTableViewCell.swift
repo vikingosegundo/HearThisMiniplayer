@@ -20,7 +20,9 @@ class TrackTableViewCell: UITableViewCell {
     @IBOutlet weak var duartionLabel: UILabel!
     @IBOutlet weak var playCountLabel: UILabel!
     @IBOutlet weak var favoriteCountLabel: UILabel!
+    @IBOutlet weak var waveFormView: WaveFormView!
 
+    
     func configure(withTrack track: Track) {
         self.coverArtView.image = nil
         self.coverArtView.imageFromUrl(urlString: track.coverArtURL)

@@ -50,7 +50,7 @@ public struct TrackAPIModel {
     public let duration: Int
     public let playCount: Int
     public let favoriteCount:Int
-    public var waveFormDataAPIModel: WaveFormDataAPIModel?
+    public var waveFormURL: String?
 
 }
 

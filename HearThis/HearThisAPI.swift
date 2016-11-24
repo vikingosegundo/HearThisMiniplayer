@@ -79,9 +79,7 @@ public class HearThisAPI: HearThisAPIType {
     public func fetchTracksForArtists(artistPermaLink: String, page: Int = 0, numberOfTracks: Int = 20, fetched: @escaping ((FetchResult<[TrackAPIModel]>) -> Void)) {
         let link = baseURLString+artistPermaLink
         networkConnector.get(url: NSURL(string: link)!, parameters: ["type":"tracks", "page": page, "count": numberOfTracks]){
-            [weak self]
             result in
-            guard let `self` = self else { return }
             switch result {
             case .success(let list):
                 let tracks: [TrackAPIModel] = list.map{
@@ -99,15 +97,7 @@ public class HearThisAPI: HearThisAPIType {
                     {
                         var track = TrackAPIModel(id: id, title: title, streamURL: streamURL, coverArtURL: coverArtURL, duration:duration, playCount: playCount, favoriteCount: favCount)
                         if let waveFormURL = $0["waveform_data"] as? String{
-                            self.fetchWaveFormData(waveFormURL, fetched: {
-                                (result) in
-                                switch result {
-                                case .success(let waveform):
-                                    track.waveFormDataAPIModel = waveform
-                                case .error(let error):
-                                    print(error.localizedDescription)
-                                }
-                            })
+                            track.waveFormURL = waveFormURL
                         }
                         return track
                     }

@@ -29,7 +29,8 @@ class ArtistDetailViewController: BaseTableViewController, TrackSelectionObserve
             do {
                 try self.datasource = ArtistDetailDataSource(tableView: tableView,
                                                              artist: artist,
-                                                             tracksResource: TrackResource(hearThisAPI:hearThisAPI)
+                                                             tracksResource: TrackResource(hearThisAPI:hearThisAPI),
+                                                             waveFormResource: WaveFormResource(hearThisAPI: hearThisAPI)
                 )
                 self.datasource?.registerSelectionObserver(observer: self)
             } catch (let e) {

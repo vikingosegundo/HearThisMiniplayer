@@ -18,6 +18,8 @@ class Track: NSObject {
         duration = apiModel.duration
         playCount = apiModel.playCount
         favoriteCount = apiModel.favoriteCount
+        waveFormURL = apiModel.waveFormURL
+        
     }
     
     let title: String
@@ -27,4 +29,5 @@ class Track: NSObject {
     let duration: Int
     let playCount: Int
     let favoriteCount:Int
+    var waveFormURL: String?
 }

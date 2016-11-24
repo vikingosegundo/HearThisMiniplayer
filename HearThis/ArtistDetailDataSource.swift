@@ -51,15 +51,17 @@ protocol TrackSelectionObserver: class {
 
 class ArtistDetailDataSource {
 
-    init(tableView: UITableView, artist: Artist, tracksResource: TrackResourceType) throws {
+    init(tableView: UITableView, artist: Artist, tracksResource: TrackResourceType, waveFormResource: WaveFormResourceType ) throws {
         self.tableView = tableView
         self.tracksResource = tracksResource
+        self.waveFormResource = waveFormResource
         self.artist = artist
         try configure()
     }
     
  
     private let tracksResource: TrackResourceType
+    private let waveFormResource: WaveFormResourceType
     private let tableView: UITableView
     private let artist: Artist
     private var populator: OFAViewPopulator?
@@ -70,6 +72,8 @@ class ArtistDetailDataSource {
         selectionObservers.add(observer)
     }
     
+    
+    private var waveFormURLsToRenderer: [String: WaveFormImageRenderer] = [:]
     private func configure() throws {
         
         let dataProvider = TracksDataProvider(artist: self.artist, tracksResource: tracksResource, reload: {
@@ -81,6 +85,28 @@ class ArtistDetailDataSource {
         if let section1Populator = OFASectionPopulator(parentView: self.tableView, dataProvider: dataProvider, cellIdentifier: {_ in return "Cell1"}, cellConfigurator: {obj, view, indexPath in
             if let cell = view as? TrackTableViewCell,
                 let track = obj as? Track{
+                
+                var renderer: WaveFormImageRenderer?
+                if let waveFormURL = track.waveFormURL {
+                    renderer = self.waveFormURLsToRenderer[waveFormURL]
+                    if renderer == nil {
+                        renderer = WaveFormImageRenderer(waveFormResource: self.waveFormResource)
+                        self.waveFormURLsToRenderer[waveFormURL] = renderer
+                    }
+                }
+                
+                if let renderer = renderer {
+                    renderer.render(track: track, size: cell.waveFormView.frame.size){
+                        result in
+                        switch result {
+                        case .success(let image):
+                            cell.waveFormView.image = image
+                        case .error(let e):
+                            print(e.localizedDescription)
+                        }
+                    }
+                }
+                
                 cell.configure(withTrack: track)
             }
         }) {
