@@ -10,7 +10,7 @@ import Foundation
 import Quick
 import Nimble
 @testable import HearThis
-
+import HearThisAPI
 
 
 class ArtistsListViewControllerSpec: QuickSpec {
@@ -65,13 +65,11 @@ class ArtistsListViewControllerSpec: QuickSpec {
                         self.sut.tableView.delegate?.tableView!(self.sut.tableView, didSelectRowAt: IndexPath(row: 0, section: 0))
                         expect((self.sut as! TestArtistsListViewController).artist!.username).to(equal("Tiffy"))
                         
-                        self.sut.tableView.delegate?.tableView!(self.sut.tableView, didSelectRowAt: IndexPath(row: 0, section: 0))
+                        self.sut.tableView.delegate?.tableView!(self.sut.tableView, didSelectRowAt: IndexPath(row: 1, section: 0))
                         expect((self.sut as! TestArtistsListViewController).artist!.username).to(equal("Herr von Blödefeld"))
                     }
                 }
             }
-        }
-        
-        
+        }        
     }
 }

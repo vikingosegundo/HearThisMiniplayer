@@ -7,7 +7,7 @@
 //
 
 import Foundation
-
+import HearThisAPI
 @testable import HearThis
 
 class HearThisAPIMock: HearThisAPIType {

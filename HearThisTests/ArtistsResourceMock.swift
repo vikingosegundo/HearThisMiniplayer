@@ -7,6 +7,7 @@
 //
 
 @testable import HearThis
+import HearThisAPI
 
 class  ArtistsResourceMock: ArtistsResourceType {
     

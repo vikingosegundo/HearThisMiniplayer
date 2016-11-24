@@ -9,7 +9,7 @@
 import Quick
 import Nimble
 @testable import HearThis
-
+import HearThisAPI
 
 
 class ArtistsListDatasourceSpec: QuickSpec {
@@ -27,7 +27,7 @@ class ArtistsListDatasourceSpec: QuickSpec {
                     Artist(fromAPIModel: ArtistAPIModel(id: 45, name: "Bert", avatarURL: "https://www.bert.com", permalink: "bert"))
                 ]
             )
-            self.sut = ArtistsListDatasource(tableView: tableView, artistsResource: artistsResource)
+            self.sut = try! ArtistsListDatasource(tableView: tableView, artistsResource: artistsResource)
         }
         
         context("Artists list") {
