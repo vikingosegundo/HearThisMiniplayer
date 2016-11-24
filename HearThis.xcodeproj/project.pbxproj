@@ -16,6 +16,7 @@
 		6479D1A41DE2E0150001A297 /* HearThisPlayerButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6479D1A31DE2E0150001A297 /* HearThisPlayerButton.swift */; };
 		6479D1A71DE2E1D10001A297 /* Player.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6479D1A61DE2E1D10001A297 /* Player.xcassets */; };
 		6479D1AB1DE2F8460001A297 /* ArtistDetailHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6479D1AA1DE2F8460001A297 /* ArtistDetailHeaderView.swift */; };
+		64BEF79E1DE68AF400A5014C /* DatasourceError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64BEF79D1DE68AF400A5014C /* DatasourceError.swift */; };
 		64C860EF1DE48501003BA939 /* ArtistsResourceMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64C860EE1DE48501003BA939 /* ArtistsResourceMock.swift */; };
 		64C860F21DE4D853003BA939 /* ArtistsListViewControllerSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64C860F11DE4D853003BA939 /* ArtistsListViewControllerSpec.swift */; };
 		64C860F41DE4D993003BA939 /* HearThisAPIMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64C860F31DE4D993003BA939 /* HearThisAPIMock.swift */; };
@@ -102,6 +103,7 @@
 		6479D1A31DE2E0150001A297 /* HearThisPlayerButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HearThisPlayerButton.swift; sourceTree = "<group>"; };
 		6479D1A61DE2E1D10001A297 /* Player.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Player.xcassets; sourceTree = "<group>"; };
 		6479D1AA1DE2F8460001A297 /* ArtistDetailHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArtistDetailHeaderView.swift; sourceTree = "<group>"; };
+		64BEF79D1DE68AF400A5014C /* DatasourceError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatasourceError.swift; sourceTree = "<group>"; };
 		64C860E51DE48267003BA939 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = "Pods/../build/Debug-iphoneos/Alamofire/Alamofire.framework"; sourceTree = "<group>"; };
 		64C860EE1DE48501003BA939 /* ArtistsResourceMock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArtistsResourceMock.swift; sourceTree = "<group>"; };
 		64C860F11DE4D853003BA939 /* ArtistsListViewControllerSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArtistsListViewControllerSpec.swift; sourceTree = "<group>"; };
@@ -194,6 +196,7 @@
 			children = (
 				64EAA2C21DDE5F090065B2A6 /* ArtistsListDataSource.swift */,
 				6479D1971DE1E45E0001A297 /* ArtistDetailDataSource.swift */,
+				64BEF79D1DE68AF400A5014C /* DatasourceError.swift */,
 			);
 			name = DataSources;
 			sourceTree = "<group>";
@@ -710,6 +713,7 @@
 				64C860FB1DE5E212003BA939 /* ArtistTableViewCell.swift in Sources */,
 				6479D1951DE1E2A80001A297 /* TrackResource.swift in Sources */,
 				64DAE5A41DE66EDA0059CFCA /* UIImageView+ImageLoading.swift in Sources */,
+				64BEF79E1DE68AF400A5014C /* DatasourceError.swift in Sources */,
 				6479D1A41DE2E0150001A297 /* HearThisPlayerButton.swift in Sources */,
 				64EAA2C31DDE5F090065B2A6 /* ArtistsListDataSource.swift in Sources */,
 				64E402C61DDE4CD900950D00 /* AppDelegate.swift in Sources */,

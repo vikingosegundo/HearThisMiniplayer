@@ -25,9 +25,16 @@ class ArtistDetailViewController: BaseTableViewController, TrackSelectionObserve
         super.viewDidLoad()
         if let artist = artist {
             self.artistDetailHeaderView.artist = artist
-            self.datasource = ArtistDetailDataSource(tableView: tableView, artist: artist, tracksResource: TrackResource(hearThisAPI:hearThisAPI))
-            self.datasource?.registerSelectionObserver(observer: self)
             
+            do {
+                try self.datasource = ArtistDetailDataSource(tableView: tableView,
+                                                             artist: artist,
+                                                             tracksResource: TrackResource(hearThisAPI:hearThisAPI)
+                )
+                self.datasource?.registerSelectionObserver(observer: self)
+            } catch (let e) {
+                fatalError(e.localizedDescription)
+            }
         }
     }
     

@@ -53,19 +53,19 @@ class ArtistsListViewController: BaseTableViewController, ArtistSelectionObserve
         }
     }
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-    }
-    
     private func configure(){
         guard let tableView = self.tableView else { return }
         
-        let ds =  ArtistsListDatasource(tableView:tableView,
-                                        artistsResource: ArtistsResource(hearThisAPI: hearThisAPI)
-        )
-        ds.registerSelectionObserver(observer: self)
-        self.datasource = ds
+        do {
+            let ds = try ArtistsListDatasource(tableView:tableView,
+                                                artistsResource: ArtistsResource(hearThisAPI: hearThisAPI)
+            )
+            ds.registerSelectionObserver(observer: self)
+            self.datasource = ds
+        } catch(let e) {
+            fatalError(e.localizedDescription)
+        }
+        
     }
     
 }

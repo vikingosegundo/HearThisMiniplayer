@@ -43,12 +43,13 @@ protocol ArtistSelectionObserver: class {
     func selected(_ artist: Artist, on: IndexPath)
 }
 
+
 class ArtistsListDatasource {
 
-    init(tableView: UITableView, artistsResource: ArtistsResourceType) {
+    init(tableView: UITableView, artistsResource: ArtistsResourceType) throws {
         self.tableView = tableView
         self.artistsResource = artistsResource
-        configure()
+        try configure()
     }
     
     private weak var artistsResource: ArtistsResourceType?
@@ -60,7 +61,7 @@ class ArtistsListDatasource {
         selectionObservers.add(observer)
     }
     
-    private func configure(){
+    private func configure() throws {
         
         if let artistsResource = self.artistsResource {
             let dataProvider = ArtistsDataProvider(artistsResource: artistsResource, reload: {
@@ -88,7 +89,9 @@ class ArtistsListDatasource {
                     }
                 }
                 self.populator = OFAViewPopulator(sectionPopulators: [section1Populator])
-            }   
+            }  else {
+                throw DatasourceError.creationError("Could not create OFASectionPopulator")
+            }
         }
     }
 }

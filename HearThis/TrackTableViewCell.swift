@@ -22,6 +22,7 @@ class TrackTableViewCell: UITableViewCell {
     @IBOutlet weak var favoriteCountLabel: UILabel!
 
     func configure(withTrack track: Track) {
+        self.coverArtView.image = nil
         self.coverArtView.imageFromUrl(urlString: track.coverArtURL)
         self.titleLabel.text = track.title
         self.duartionLabel.text = type(of:self).durationString(forDuration: track.duration)

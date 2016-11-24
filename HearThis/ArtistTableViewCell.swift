@@ -18,6 +18,7 @@ class ArtistTableViewCell: UITableViewCell {
     @IBOutlet weak var nameLabel: UILabel!
     
     func configure(withArtist artist: Artist) {
+        avatarView.image = nil
         avatarView.imageFromUrl(urlString: artist.avatarURLString)
         nameLabel.text = artist.username
     }
