@@ -219,6 +219,13 @@
 			name = Player;
 			sourceTree = "<group>";
 		};
+		647E2EA61DE7BF2A009EBEFA /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
 		64C860ED1DE484D0003BA939 /* Mocks */ = {
 			isa = PBXGroup;
 			children = (
@@ -354,6 +361,7 @@
 		64E402D91DDE4CDA00950D00 /* HearThisTests */ = {
 			isa = PBXGroup;
 			children = (
+				647E2EA61DE7BF2A009EBEFA /* Resources */,
 				64C860F01DE4D82A003BA939 /* ArtistsList */,
 				64E402DC1DDE4CDA00950D00 /* Info.plist */,
 			);

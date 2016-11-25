@@ -78,7 +78,7 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="67"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="JOp-jR-CUG" id="nne-7y-fF3">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="66"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="66.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="tun-cd-e6y">
@@ -187,11 +187,11 @@
                                         <rect key="frame" x="0.0" y="178" width="375" height="88"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="bV5-Ll-37b" id="NFe-sc-wfr">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="87"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="87.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4hi-tK-kJZ" customClass="WaveFormView" customModule="HearThis" customModuleProvider="target">
-                                                    <rect key="frame" x="0.0" y="64" width="375" height="30"/>
+                                                    <rect key="frame" x="0.0" y="54" width="375" height="40"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </view>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="3Nm-ho-43S">
@@ -241,7 +241,7 @@
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="deV-oR-3tP" firstAttribute="top" secondItem="8Td-ZE-tyH" secondAttribute="bottom" constant="12" id="387-2J-kIu"/>
-                                                <constraint firstItem="4hi-tK-kJZ" firstAttribute="top" secondItem="NFe-sc-wfr" secondAttribute="top" constant="64" id="BYA-jO-gej"/>
+                                                <constraint firstItem="4hi-tK-kJZ" firstAttribute="top" secondItem="NFe-sc-wfr" secondAttribute="top" constant="54" id="BYA-jO-gej"/>
                                                 <constraint firstItem="JUj-QH-JI9" firstAttribute="height" secondItem="deV-oR-3tP" secondAttribute="height" id="GEm-UH-bd0"/>
                                                 <constraint firstItem="wUK-pP-wnR" firstAttribute="height" secondItem="JUj-QH-JI9" secondAttribute="height" id="PnU-Jx-g5v"/>
                                                 <constraint firstAttribute="trailing" secondItem="4hi-tK-kJZ" secondAttribute="trailing" id="UDG-3o-Bz1"/>
@@ -259,6 +259,7 @@
                                                 <constraint firstAttribute="trailing" secondItem="8Td-ZE-tyH" secondAttribute="trailing" constant="8" id="xY8-LB-eXA"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                         <connections>
                                             <outlet property="coverArtView" destination="3Nm-ho-43S" id="GAy-8h-LQw"/>
                                             <outlet property="duartionLabel" destination="wUK-pP-wnR" id="yal-tn-grc"/>

@@ -26,15 +26,11 @@ class TrackResource: TrackResourceType {
             result in
             switch result {
             case .success(let list):
-                
-                fetched(FetchResult.success(list.map{ Track(fromAPIModel: $0)}))
+                fetched(.success(list.map{ Track(fromAPIModel: $0)}))
             case .error(let error):
-                fetched(FetchResult.error(error))
+                fetched(.error(error))
             }
         }
     }
     
-    private func fetchWaveform(_ tracks: [TrackAPIModel]) {
-    
-    }
 }

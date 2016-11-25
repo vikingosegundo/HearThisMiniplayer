@@ -26,9 +26,9 @@ class WaveFormResource: WaveFormResourceType {
             result in
             switch result {
             case .success(let waveAPIModel):
-                fetched(FetchResult.success(WaveForm(with: waveAPIModel)))
+                fetched(.success(WaveForm(with: waveAPIModel)))
             case .error(let error):
-                fetched(FetchResult.error(error))
+                fetched(.error(error))
             }
         }
     }

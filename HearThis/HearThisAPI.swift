@@ -68,10 +68,10 @@ public class HearThisAPI: HearThisAPIType {
                     .filter { $0 != nil }
                     .map{ $0! }
                 
-                fetched(FetchResult.success(NSOrderedSet(array: artists).array as! [ArtistAPIModel]))
+                fetched(.success(NSOrderedSet(array: artists).array as! [ArtistAPIModel]))
 
             case .error(let error):
-                fetched(FetchResult.error(error))
+                fetched(.error(error))
             }
         }
     }
@@ -105,10 +105,10 @@ public class HearThisAPI: HearThisAPIType {
                     }
                     .filter { $0 != nil }
                     .map{ $0! }
-                fetched(FetchResult.success(tracks))
+                fetched(.success(tracks))
                 
             case .error(let error):
-                fetched(FetchResult.error(error))
+                fetched(.error(error))
             }
         }
     }
@@ -120,12 +120,12 @@ public class HearThisAPI: HearThisAPIType {
                 switch result {
                 case .success(let value):
                     if let array = value as? [Int] {
-                        fetched(FetchResult.success(WaveFormDataAPIModel(waveFormDataPoints: array)))
+                        fetched(.success(WaveFormDataAPIModel(waveFormDataPoints: array)))
                     } else {
-                        fetched(FetchResult.error(FetchError.undefined("datapoints wrong format")))
+                        fetched(.error(FetchError.undefined("datapoints wrong format")))
                     }
                 case .error(let error):
-                    fetched(FetchResult.error(error))
+                    fetched(.error(error))
                 }
             })
         }

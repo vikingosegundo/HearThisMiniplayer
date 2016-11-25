@@ -32,13 +32,13 @@ class ArtistsResource: ArtistsResourceType {
                 switch result {
                 case .success(let apiArtists):
                     self._topArtists = apiArtists.map{ Artist(fromAPIModel: $0) }
-                    topArtistsFetched(FetchResult.success(self._topArtists))
+                    topArtistsFetched(.success(self._topArtists))
                 case .error(let error):
-                    topArtistsFetched(FetchResult.error(error))
+                    topArtistsFetched(.error(error))
                 }
             })
         } else {
-            topArtistsFetched(FetchResult.success(self._topArtists))
+            topArtistsFetched(.success(self._topArtists))
         }
     }
 }
