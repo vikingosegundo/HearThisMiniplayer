@@ -20,6 +20,9 @@
 		6479D1A41DE2E0150001A297 /* HearThisPlayerButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6479D1A31DE2E0150001A297 /* HearThisPlayerButton.swift */; };
 		6479D1A71DE2E1D10001A297 /* Player.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6479D1A61DE2E1D10001A297 /* Player.xcassets */; };
 		6479D1AB1DE2F8460001A297 /* ArtistDetailHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6479D1AA1DE2F8460001A297 /* ArtistDetailHeaderView.swift */; };
+		647E2EA81DE85F35009EBEFA /* ArtistsResourceSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 647E2EA71DE85F35009EBEFA /* ArtistsResourceSpec.swift */; };
+		647E2EAA1DE86378009EBEFA /* TrackResourceSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 647E2EA91DE86378009EBEFA /* TrackResourceSpec.swift */; };
+		647E2EAC1DE86898009EBEFA /* WaveFormResourceSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 647E2EAB1DE86898009EBEFA /* WaveFormResourceSpec.swift */; };
 		64BEF79E1DE68AF400A5014C /* DatasourceError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64BEF79D1DE68AF400A5014C /* DatasourceError.swift */; };
 		64C860EF1DE48501003BA939 /* ArtistsResourceMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64C860EE1DE48501003BA939 /* ArtistsResourceMock.swift */; };
 		64C860F21DE4D853003BA939 /* ArtistsListViewControllerSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64C860F11DE4D853003BA939 /* ArtistsListViewControllerSpec.swift */; };
@@ -111,6 +114,9 @@
 		6479D1A31DE2E0150001A297 /* HearThisPlayerButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HearThisPlayerButton.swift; sourceTree = "<group>"; };
 		6479D1A61DE2E1D10001A297 /* Player.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Player.xcassets; sourceTree = "<group>"; };
 		6479D1AA1DE2F8460001A297 /* ArtistDetailHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArtistDetailHeaderView.swift; sourceTree = "<group>"; };
+		647E2EA71DE85F35009EBEFA /* ArtistsResourceSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArtistsResourceSpec.swift; sourceTree = "<group>"; };
+		647E2EA91DE86378009EBEFA /* TrackResourceSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrackResourceSpec.swift; sourceTree = "<group>"; };
+		647E2EAB1DE86898009EBEFA /* WaveFormResourceSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WaveFormResourceSpec.swift; sourceTree = "<group>"; };
 		64BEF79D1DE68AF400A5014C /* DatasourceError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatasourceError.swift; sourceTree = "<group>"; };
 		64C860E51DE48267003BA939 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = "Pods/../build/Debug-iphoneos/Alamofire/Alamofire.framework"; sourceTree = "<group>"; };
 		64C860EE1DE48501003BA939 /* ArtistsResourceMock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArtistsResourceMock.swift; sourceTree = "<group>"; };
@@ -222,6 +228,9 @@
 		647E2EA61DE7BF2A009EBEFA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				647E2EA71DE85F35009EBEFA /* ArtistsResourceSpec.swift */,
+				647E2EA91DE86378009EBEFA /* TrackResourceSpec.swift */,
+				647E2EAB1DE86898009EBEFA /* WaveFormResourceSpec.swift */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -239,7 +248,6 @@
 		64C860F01DE4D82A003BA939 /* ArtistsList */ = {
 			isa = PBXGroup;
 			children = (
-				64C860ED1DE484D0003BA939 /* Mocks */,
 				64E402DA1DDE4CDA00950D00 /* ArtistsListDatasourceSpec.swift */,
 				64C860F11DE4D853003BA939 /* ArtistsListViewControllerSpec.swift */,
 			);
@@ -361,6 +369,7 @@
 		64E402D91DDE4CDA00950D00 /* HearThisTests */ = {
 			isa = PBXGroup;
 			children = (
+				64C860ED1DE484D0003BA939 /* Mocks */,
 				647E2EA61DE7BF2A009EBEFA /* Resources */,
 				64C860F01DE4D82A003BA939 /* ArtistsList */,
 				64E402DC1DDE4CDA00950D00 /* Info.plist */,
@@ -755,7 +764,10 @@
 				64C860F41DE4D993003BA939 /* HearThisAPIMock.swift in Sources */,
 				64C860F21DE4D853003BA939 /* ArtistsListViewControllerSpec.swift in Sources */,
 				64C860EF1DE48501003BA939 /* ArtistsResourceMock.swift in Sources */,
+				647E2EAA1DE86378009EBEFA /* TrackResourceSpec.swift in Sources */,
 				64E402DB1DDE4CDA00950D00 /* ArtistsListDatasourceSpec.swift in Sources */,
+				647E2EA81DE85F35009EBEFA /* ArtistsResourceSpec.swift in Sources */,
+				647E2EAC1DE86898009EBEFA /* WaveFormResourceSpec.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

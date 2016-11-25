@@ -21,7 +21,9 @@ class WaveFormResource: WaveFormResourceType {
     let hearThisAPI: HearThisAPIType
     
     func waveform(for track: Track, fetched: @escaping (FetchResult<WaveForm>) -> Void) {
-        guard let waveFormURL = track.waveFormURL else { return }
+        guard let waveFormURL = track.waveFormURL else {
+            fetched(.error(FetchError.undefined("no waveFormURL")))
+            return }
         hearThisAPI.fetchWaveFormData(waveFormURL){
             result in
             switch result {

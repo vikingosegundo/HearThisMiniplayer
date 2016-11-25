@@ -21,7 +21,7 @@ class ArtistsListViewControllerSpec: QuickSpec {
         context("instantiated from Storyboard"){
             beforeEach {
                 self.sut = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ArtistsListViewController") as! ArtistsListViewController
-                self.sut.hearThisAPI = HearThisAPIMock(mockedData:
+                self.sut.hearThisAPI = ArtistsHearThisAPIMock(mockedData:
                     [
                         ArtistAPIModel(id: 23, name: "Tiffy", avatarURL: "https://tiffy.com", permalink: "tiffy"),
                         ArtistAPIModel(id: 13, name: "Herr von Blödefeld", avatarURL: "https://bloedefeld.com", permalink: "bloedefeld")
@@ -44,7 +44,7 @@ class ArtistsListViewControllerSpec: QuickSpec {
             beforeEach {
                 self.sut = TestArtistsListViewController()
                 
-                self.sut.hearThisAPI = HearThisAPIMock(mockedData:
+                self.sut.hearThisAPI = ArtistsHearThisAPIMock(mockedData:
                     [
                         ArtistAPIModel(id: 23, name: "Tiffy", avatarURL: "https://tiffy.com", permalink: "tiffy"),
                         ArtistAPIModel(id: 13, name: "Herr von Blödefeld", avatarURL: "https://bloedefeld.com", permalink: "bloedefeld")

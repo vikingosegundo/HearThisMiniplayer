@@ -33,7 +33,7 @@ public struct ArtistAPIModel: Hashable {
 
 
 public struct TrackAPIModel {
-    init(id: Int, title: String, streamURL: String, coverArtURL: String, duration: Int, playCount: Int, favoriteCount:Int) {
+    public init(id: Int, title: String, streamURL: String, coverArtURL: String, duration: Int, playCount: Int, favoriteCount:Int) {
         self.title = title
         self.id = id
         self.streamURL = streamURL
