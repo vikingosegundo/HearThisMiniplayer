@@ -11,6 +11,7 @@ import CoreGraphics
 
 
 enum ImageRendererError: Error {
+    case emptyData
     case unknown(String)
 }
 
@@ -43,28 +44,21 @@ class WaveFormImageRenderer {
             case .success(let waveForm):
                 DispatchQueue.global(qos: .userInitiated).async {
                     
-                    UIGraphicsBeginImageContext(size)
-                    guard waveForm.waveFormDataPoints.count > 0 else {
+                    let wavePoints = waveForm.waveFormDataPoints
+                    guard wavePoints.count > 0,
+                        let max = waveForm.waveFormDataPoints.max()
+                        else {
                         DispatchQueue.main.async {
-                            rendered(ImageRendererResult.error(ImageRendererError.unknown("no wavePoints")))
+                            rendered(ImageRendererResult.error(ImageRendererError.emptyData))
                         }
                         return
                     }
                     
-                    
-                    let wavePoints = waveForm.waveFormDataPoints
-                    let dataPointWidth = CGFloat(size.width) / CGFloat(wavePoints.count)
-                    
+                    UIGraphicsBeginImageContext(size)
                     UIColor(white: 0.9, alpha: 1).set()
-                    var max = -1
-                    wavePoints.forEach { (value) in
-                        
-                        if value > max {
-                            max = value
-                        }
-                    }
+
+                    let dataPointWidth = CGFloat(size.width) / CGFloat(wavePoints.count)                    
                     let heightFactor = CGFloat(size.height) / CGFloat(max)
-                    
                     
                     var x = CGFloat(0);
                     for point in wavePoints {
