@@ -67,16 +67,20 @@ class WaveFormImageRenderer {
                         path.stroke()
                         x += dataPointWidth
                     }
-                    
                     let img = UIGraphicsGetImageFromCurrentImageContext()
                     UIGraphicsEndImageContext()
+                    
                     self.renderedImage = img
                     DispatchQueue.main.async {
-                        rendered(ImageRendererResult.success(self.renderedImage!))
+                        if img != nil {
+                            rendered(.success(self.renderedImage!))
+                        } else {
+                            rendered(.error(ImageRendererError.unknown("image was not created for unkown reason")))
+                        }
                     }
                 }
             case .error(let error):
-                rendered(ImageRendererResult.error(error))
+                rendered(.error(error))
             }
             
         }
