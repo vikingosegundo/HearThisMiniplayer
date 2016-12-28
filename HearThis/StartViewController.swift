@@ -11,7 +11,6 @@ import UIKit
 class StartViewController: UIViewController, HearThisPlayerHolder {
     @IBOutlet weak var minPlayerHightConstraint: NSLayoutConstraint!
 
-    @IBOutlet weak var tableViewBottomContraint: NSLayoutConstraint!
     var hearThisPlayer: HearThisPlayerType? {
         didSet{
             hearThisPlayer?.registerObserver(observer: self)
@@ -21,7 +20,6 @@ class StartViewController: UIViewController, HearThisPlayerHolder {
     fileprivate var bottomDistance: CGFloat = 0 {	
         didSet{
             minPlayerHightConstraint.constant = bottomDistance
-            tableViewBottomContraint.constant = bottomDistance
         }
     }
     override func viewDidLoad() {

@@ -12,6 +12,7 @@
 		640D19D21DE73DBF000AF6B9 /* WaveForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 640D19D11DE73DBF000AF6B9 /* WaveForm.swift */; };
 		640D19D41DE74A8C000AF6B9 /* WaveFormResource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 640D19D31DE74A8C000AF6B9 /* WaveFormResource.swift */; };
 		640D19D61DE758AD000AF6B9 /* WaveFormImageRenderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 640D19D51DE758AD000AF6B9 /* WaveFormImageRenderer.swift */; };
+		6424E1211E146AD600E0203B /* HearThisTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6424E1201E146AD600E0203B /* HearThisTabBarController.swift */; };
 		6479D1931DE1E1F90001A297 /* Track.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6479D1921DE1E1F90001A297 /* Track.swift */; };
 		6479D1951DE1E2A80001A297 /* TrackResource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6479D1941DE1E2A80001A297 /* TrackResource.swift */; };
 		6479D1981DE1E45E0001A297 /* ArtistDetailDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6479D1971DE1E45E0001A297 /* ArtistDetailDataSource.swift */; };
@@ -106,6 +107,7 @@
 		640D19D11DE73DBF000AF6B9 /* WaveForm.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WaveForm.swift; sourceTree = "<group>"; };
 		640D19D31DE74A8C000AF6B9 /* WaveFormResource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WaveFormResource.swift; sourceTree = "<group>"; };
 		640D19D51DE758AD000AF6B9 /* WaveFormImageRenderer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WaveFormImageRenderer.swift; sourceTree = "<group>"; };
+		6424E1201E146AD600E0203B /* HearThisTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HearThisTabBarController.swift; sourceTree = "<group>"; };
 		6479D1921DE1E1F90001A297 /* Track.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Track.swift; sourceTree = "<group>"; };
 		6479D1941DE1E2A80001A297 /* TrackResource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrackResource.swift; sourceTree = "<group>"; };
 		6479D1971DE1E45E0001A297 /* ArtistDetailDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArtistDetailDataSource.swift; sourceTree = "<group>"; };
@@ -263,6 +265,7 @@
 				64EAA2D51DDF5DE00065B2A6 /* StartViewController.swift */,
 				64EAA2D71DE098DC0065B2A6 /* ArtistDetailViewController.swift */,
 				64E86C471DE1DE8F00AF0815 /* BaseTableViewController.swift */,
+				6424E1201E146AD600E0203B /* HearThisTabBarController.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -542,7 +545,7 @@
 					};
 					64E402C11DDE4CD900950D00 = {
 						CreatedOnToolsVersion = 8.1;
-						DevelopmentTeam = Y68M8S5N3Q;
+						DevelopmentTeam = YWS6MYD824;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
@@ -731,6 +734,7 @@
 				64E402C81DDE4CD900950D00 /* ArtistsListViewController.swift in Sources */,
 				64E86C481DE1DE8F00AF0815 /* BaseTableViewController.swift in Sources */,
 				6479D19D1DE204560001A297 /* HearThisPlayer.swift in Sources */,
+				6424E1211E146AD600E0203B /* HearThisTabBarController.swift in Sources */,
 				6479D1AB1DE2F8460001A297 /* ArtistDetailHeaderView.swift in Sources */,
 				64EAA2D81DE098DC0065B2A6 /* ArtistDetailViewController.swift in Sources */,
 				64C861241DE5FB7B003BA939 /* NetworkConnector.swift in Sources */,
@@ -987,7 +991,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = Y68M8S5N3Q;
+				DEVELOPMENT_TEAM = YWS6MYD824;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/build/Debug-iphoneos/Alamofire",
@@ -1006,7 +1010,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = Y68M8S5N3Q;
+				DEVELOPMENT_TEAM = YWS6MYD824;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/build/Debug-iphoneos/Alamofire",
