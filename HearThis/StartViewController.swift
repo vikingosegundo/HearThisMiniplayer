@@ -11,20 +11,19 @@ import UIKit
 class StartViewController: UIViewController, HearThisPlayerHolder {
     @IBOutlet weak var minPlayerHightConstraint: NSLayoutConstraint!
 
+    @IBOutlet weak var miniPlayerBottom: NSLayoutConstraint!
     var hearThisPlayer: HearThisPlayerType? {
         didSet{
             hearThisPlayer?.registerObserver(observer: self)
         }
     }
     
-    fileprivate var bottomDistance: CGFloat = 0 {	
-        didSet{
-            minPlayerHightConstraint.constant = bottomDistance
-        }
-    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        bottomDistance = 0
+        minPlayerHightConstraint.constant = 0
+        miniPlayerBottom.constant = 0
+
         for childViewController in self.childViewControllers {
             if let playerHolder = childViewController as? HearThisPlayerHolder {
                 playerHolder.hearThisPlayer = self.hearThisPlayer
@@ -36,10 +35,14 @@ class StartViewController: UIViewController, HearThisPlayerHolder {
 
 extension StartViewController: HearThisPlayerObserver {
     func player(_ player: HearThisPlayerType, willStartPlaying track: Track) {
-        bottomDistance = 69
+        minPlayerHightConstraint.constant = 69
+        miniPlayerBottom.constant = 44
+        self.view.setNeedsUpdateConstraints()
     }
     
     func player(_ player: HearThisPlayerType, didStopPlaying track: Track) {
-        bottomDistance = 0
+        minPlayerHightConstraint.constant = 0
+        miniPlayerBottom.constant = 0
+        self.view.setNeedsUpdateConstraints()
     }
 }

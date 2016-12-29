@@ -14,22 +14,13 @@ protocol HearThisPlayerType {
     func stop()
     
     mutating func registerObserver(observer: HearThisPlayerObserver)
-    mutating func removeObserver(observer: HearThisPlayerObserver)
-    var observers:[HearThisPlayerObserver] { set get }
+    var observers: NSHashTable<AnyObject>! { set get }
 }
 
 extension HearThisPlayerType {
     mutating func registerObserver(observer: HearThisPlayerObserver) {
-        self.observers.append(observer)
+        self.observers.add(observer)
     }
-    mutating func removeObserver(observer: HearThisPlayerObserver) {
-        if let idx = self.observers.index(where: {
-            $0 === observer
-        }){
-            self.observers.remove(at: idx)
-        }
-    }
-    
 }
 
 protocol HearThisPlayerObserver: class {
@@ -50,7 +41,7 @@ protocol HearThisPlayerHolder : class {
 
 
 class HearThisPlayer: HearThisPlayerType {
-
+    
     init(notificationCenter: NotificationCenter = NotificationCenter.default, audioSession:AVAudioSession = AVAudioSession.sharedInstance()) {
         self.notificationCenter = notificationCenter
         self.audioSession = audioSession
@@ -62,13 +53,15 @@ class HearThisPlayer: HearThisPlayerType {
         })
         notificationCenter.addObserver(self, selector: #selector(HearThisPlayer.playerDidFinishPlaying(note:)),name: NSNotification.Name.AVPlayerItemDidPlayToEndTime, object: player.currentItem)
     }
-    var observers:[HearThisPlayerObserver] = []
+
     
     private var player = AVPlayer()
-    
+    var observers: NSHashTable<AnyObject>! = NSHashTable.weakObjects()
+
     fileprivate var currentTrack: Track?
     private let notificationCenter: NotificationCenter
     private let audioSession: AVAudioSession
+    
     func play(_ track: Track) {
         self.resetPlayer()
         self.trackWillStartPlaying(track)
@@ -93,7 +86,8 @@ class HearThisPlayer: HearThisPlayerType {
         }
     }
     
-    private func playItem(_ item: AVPlayerItem) {
+    private
+    func playItem(_ item: AVPlayerItem) {
         player.replaceCurrentItem(with: item)
         player.play()
         do {
@@ -108,7 +102,8 @@ class HearThisPlayer: HearThisPlayerType {
         }
     }
     
-    private func resetPlayer(){
+    private
+    func resetPlayer(){
         if let currentItem = self.player.currentItem {
             currentItem.cancelPendingSeeks()
             currentItem.asset.cancelLoading()
@@ -118,27 +113,44 @@ class HearThisPlayer: HearThisPlayerType {
 
 extension HearThisPlayer {
     
-    
-    fileprivate func trackWillStartPlaying(_ track:Track) {
+    fileprivate
+    func trackWillStartPlaying(_ track:Track) {
         DispatchQueue.main.async {
-            for observer in self.observers {
-                observer.player(self, willStartPlaying: track)
+            [weak self] in
+            guard let `self` = self else { return }
+
+            for observer in self.observers.allObjects {
+                if let observer = observer as? HearThisPlayerObserver {
+                    observer.player(self, willStartPlaying: track)
+                }
             }
         }
     }
     
-    fileprivate func trackdDidStartPlaying(track: Track) {
+    fileprivate
+    func trackdDidStartPlaying(track: Track) {
         DispatchQueue.main.async {
-            for observer in self.observers {
-                observer.player(self, didStartPlaying: track)
+            [weak self] in
+            guard let `self` = self else { return }
+            
+            for observer in self.observers.allObjects {
+                if let observer = observer as? HearThisPlayerObserver {
+                    observer.player(self, didStartPlaying: track)
+                }
             }
         }
     }
     
-    fileprivate func trackdDidStopPlaying(track: Track) {
+    fileprivate
+    func trackdDidStopPlaying(track: Track) {
         DispatchQueue.main.async {
-            for observer in self.observers {
-                observer.player(self, didStopPlaying: track)
+            [weak self] in
+            guard let `self` = self else { return }
+            
+            for observer in self.observers.allObjects {
+                if let observer = observer as? HearThisPlayerObserver {
+                    observer.player(self, didStopPlaying: track)
+                }
             }
         }
     }

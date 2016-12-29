@@ -9,6 +9,7 @@
 import UIKit
 
 class HearThisTabBarController: UITabBarController, HearThisPlayerHolder {
+    
     var hearThisPlayer: HearThisPlayerType? {
         didSet{
             if let viewControllers = viewControllers {

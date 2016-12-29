@@ -25,7 +25,6 @@ class TracksDataProvider:NSObject, OFASectionDataProvider {
     private let tracksResource: TrackResourceType
     
     private func fetch(){
-        
         tracksResource.tracksForArtist(self.artist) {
             [weak self]
             result in
@@ -82,7 +81,15 @@ class ArtistDetailDataSource {
             self.tableView.reloadData()
         })
         
-        if let section1Populator = OFASectionPopulator(parentView: self.tableView, dataProvider: dataProvider, cellIdentifier: {_ in return "Cell1"}, cellConfigurator: {obj, view, indexPath in
+        if let section1Populator = OFASectionPopulator(parentView: self.tableView,
+                                                       dataProvider: dataProvider,
+                                                       cellIdentifier: {_ in return "Cell1"},
+                                                       cellConfigurator:
+            {
+            [weak self]
+            obj, view, indexPath in
+            
+            guard let `self` = self else { return }
             if let cell = view as? TrackTableViewCell,
                 let track = obj as? Track{
                 
@@ -125,6 +132,5 @@ class ArtistDetailDataSource {
         } else {
             throw DatasourceError.creationError("Could not create OFASectionPopulator")
         }
-    
     }
 }

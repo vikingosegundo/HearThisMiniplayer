@@ -25,12 +25,7 @@ class HearThisPlayerViewController: UIViewController, HearThisPlayerHolder  {
         didSet{
             playButton.addTarget(self, action: #selector(HearThisPlayerViewController.playerButtonTapped(sender:)), for: .touchUpInside)
         }
-    }
-
-    deinit {
-        hearThisPlayer?.removeObserver(observer: self)
-    }
-    
+    }    
 }
 
 extension HearThisPlayerViewController {

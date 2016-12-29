@@ -9,13 +9,19 @@
 import UIKit
 
 class HearThisNavigationController: UINavigationController, HearThisPlayerHolder {
-    var hearThisPlayer: HearThisPlayerType?
+    var hearThisPlayer: HearThisPlayerType? {
+        didSet{
+            if let tvc = self.topViewController as? HearThisPlayerHolder{
+                tvc.hearThisPlayer = hearThisPlayer
+            }
+        }
+    }
 
-    
     override func pushViewController(_ viewController: UIViewController, animated: Bool) {
         if let vc = viewController as? ArtistDetailViewController {
             vc.hearThisPlayer = self.hearThisPlayer
         }
         super.pushViewController(viewController, animated: animated)
     }
+    
 }
